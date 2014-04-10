@@ -1,0 +1,15 @@
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\FsYahtzee.dll.config
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\FsYahtzee.XML
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\FsYahtzee.dll
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\FsYahtzee.pdb
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\FSharp.Core.dll
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\FsUnit.CustomMatchers.dll
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\FsUnit.Xunit.dll
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\NHamcrest.dll
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\xunit.dll
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\FsUnit.CustomMatchers.xml
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\FsUnit.Xunit.xml
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\FSharp.Core.xml
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\bin\Debug\xunit.xml
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\obj\Debug\FsYahtzee.dll
+D:\Dev\Playground\Dojos\2014-04-10 Yahtzee\FsYahtzee\obj\Debug\FsYahtzee.pdb

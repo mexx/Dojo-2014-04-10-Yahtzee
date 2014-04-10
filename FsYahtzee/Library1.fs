@@ -8,28 +8,33 @@ type Dice = One | Two | Three
 
 type Category = Ones | Twos | Threes | Pair
 
+let diceScore = function | One -> 1 | Two -> 2 | Three -> 3
+
+let calculatePair throw =
+    throw
+    |> List.sort
+    |> List.rev
+    |> List.head
+    |> diceScore
+    |> (*) 2
+
+let calculateSingle throw category =
+    let diceToCount =
+        match category with
+        | Ones -> One
+        | Twos -> Two
+        | Threes -> Three
+    throw
+    |> List.filter ((=) diceToCount)
+    |> List.length
+    |> (*) (diceScore diceToCount)
+
+
 let score (dOne, dTwo, dThree, dFour, dFive) =
-    let diceScore = function | One -> 1 | Two -> 2 | Three -> 3
     let throw = [dOne; dTwo; dThree; dFour; dFive]
     function
-    | Pair ->
-        throw
-        |> List.sort
-        |> List.rev
-        |> List.head
-        |> diceScore
-        |> (*) 2
-    | category -> 
-        let diceToCount =
-            match category with
-            | Ones -> One
-            | Twos -> Two
-            | Threes -> Three
-
-        throw
-        |> List.filter ((=) diceToCount)
-        |> List.length
-        |> (*) (diceScore diceToCount)
+    | Pair -> calculatePair throw
+    | category -> calculateSingle throw category
 
 [<Fact>]
 let ``Five dices with one placed in ones category`` ()= 
@@ -85,3 +90,4 @@ let ``Five dices with one placed in pair category`` ()=
     let category = Category.Pair
     score throw category
     |> should equal 2
+

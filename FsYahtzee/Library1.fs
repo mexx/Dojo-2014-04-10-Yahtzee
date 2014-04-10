@@ -4,25 +4,25 @@ open Xunit
 open Xunit.Extensions
 open FsUnit.Xunit
 
-type Dice = One | Two | Three
+type Dice = One | Two | Three | Four | Five
 
 type Category = Ones | Twos | Threes | Pair | ``Three of a kind``
 
 let diceScore = function | One -> 1 | Two -> 2 | Three -> 3
 
-let rec allAreEqual array =
-    match array with
-    | f :: s :: rest when f <> s -> false
+let rec allAreEqual =
+    function
+    | f :: s :: rest when f <> s -> None
     | f :: s :: rest when f = s -> (s :: rest) |> allAreEqual
-    | f :: [] -> true
+    | f :: [] -> Some f
 
 let calculateOfAKind count throw =
-    throw
-    |> List.sort |> List.rev |> Seq.windowed count
-    |> Seq.map ((<|) List.ofArray)
-    |> Seq.filter ((<|) allAreEqual)
-    |> Seq.head |> List.head
-    |> diceScore |> (*) count
+    let possibleScore =
+        List.sort >> List.rev >> Seq.windowed count
+        >> Seq.map List.ofArray
+        >> Seq.tryPick allAreEqual
+        >> Option.map (diceScore >> ((*) count))
+    defaultArg (possibleScore throw) 0
 
 let calculateSingle throw category =
     let diceToCount =
@@ -96,6 +96,13 @@ let ``one placed in pair category`` ()=
     let category = Pair
     score throw category
     |> should equal 2
+
+[<Fact>]
+let ``Straight in pair category`` ()= 
+    let throw = One, Two, Three, Four, Five
+    let category = Pair
+    score throw category
+    |> should equal 0
 
 [<Fact>]
 let ``pair of ones pair of twos and one three placed in Pair category`` () =
